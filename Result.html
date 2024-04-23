@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Quiz Results</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Retrieve student details and marks from session storage
+        const studentDetails = JSON.parse(sessionStorage.getItem('studentDetails'));
+        const marks = sessionStorage.getItem('marks');
+
+        // Display results
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `
+            <p><strong>Roll Number:</strong> ${studentDetails.rollNumber}</p>
+            <p><strong>Name:</strong> ${studentDetails.name}</p>
+            <p><strong>Batch:</strong> ${studentDetails.batch}</p>
+            <p><strong>Section:</strong> ${studentDetails.section}</p>
+            
+            <p><strong>Total Marks:</strong> ${marks}</p>
+        `;
+    </script>
+</body>
+</html>
